@@ -25,7 +25,7 @@ export class LoginComponent {
         username: this.username.value,
         password: this.password.value
       }).pipe(
-        tap(() => this.router.navigate(['home']))
+        tap(() => this.router.navigate(['home']).then(() => window.location.reload()))
       ).subscribe()
     }
   }
