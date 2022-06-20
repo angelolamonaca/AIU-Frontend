@@ -16,6 +16,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {AppRoutingModule} from './app-routing.module';
 import {JwtModule} from "@auth0/angular-jwt";
 import {AuthGuardService} from "../components/auth/auth-guard.service";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -44,7 +47,7 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         allowedDomains: ["localhost:4200"],
       },
-    }),
+    }), MatToolbarModule, MatIconModule, MatSidenavModule,
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

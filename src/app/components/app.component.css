@@ -1,0 +1,39 @@
+span + span {
+  margin-left: 20px;
+}
+
+.example-toolbar {
+  height: 10vh;
+}
+
+.example-toolbar-bottom {
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  width: 100vw;
+  height: 80vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.icon-display {
+  transform: scale(2);
+}
