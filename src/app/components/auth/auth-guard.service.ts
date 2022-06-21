@@ -6,7 +6,7 @@ export class AuthGuardService implements CanActivate {
   constructor( public router: Router, private jwtHelper: JwtHelperService) {}
   canActivate(): boolean {
     if (this.jwtHelper.isTokenExpired()) {
-      this.router.navigate(['auth/login']);
+      this.router.navigate(['welcome']);
       return false;
     }
     return true;

@@ -19,6 +19,7 @@ import {AuthGuardService} from "../components/auth/auth-guard.service";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {WelcomeComponent} from "../components/welcome/welcome.component";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -29,7 +30,8 @@ export function tokenGetter() {
     AppComponent,
     HomeComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
