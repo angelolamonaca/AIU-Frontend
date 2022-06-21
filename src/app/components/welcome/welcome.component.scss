@@ -1,0 +1,15 @@
+.main-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  text-align: center;
+  max-width: 90vw;
+  & p {
+    margin: 5px;
+  }
+}
+
+.blockchain_city {
+  max-width: 90vw;
+  max-height: 50vh;
+ }
