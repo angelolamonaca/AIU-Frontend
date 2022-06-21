@@ -6,11 +6,12 @@ span + span {
   height: 10vh;
 }
 
-.example-toolbar-bottom {
-  height: 10vh;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
+.example-button-container {
+  position: fixed;
+  display: flex;
+  align-self: flex-end;
+  bottom: 5vh;
+  right: 10vw;
 }
 
 .example-spacer {
@@ -19,7 +20,7 @@ span + span {
 
 .example-container {
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 

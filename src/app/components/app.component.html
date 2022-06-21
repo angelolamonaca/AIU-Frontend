@@ -26,13 +26,14 @@
 
   <div class="example-sidenav-content">
     <router-outlet></router-outlet>
+
+    <div *ngIf="isLoggedIn" class="example-button-container">
+      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
   </div>
 
 
 </mat-drawer-container>
 
-<mat-toolbar class="example-toolbar-bottom" color="primary">
-  <button [disabled]="!isLoggedIn" mat-icon-button class="example-icon">
-    <mat-icon class="icon-display">add_circle_outline</mat-icon>
-  </button>
-</mat-toolbar>
