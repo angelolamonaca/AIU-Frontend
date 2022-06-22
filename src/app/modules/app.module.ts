@@ -20,6 +20,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {WelcomeComponent} from "../components/welcome/welcome.component";
+import {RegisterComponent} from "../components/auth/register/register.component";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -31,6 +32,7 @@ export function tokenGetter() {
     HomeComponent,
     AuthComponent,
     LoginComponent,
+    RegisterComponent,
     WelcomeComponent
   ],
   imports: [

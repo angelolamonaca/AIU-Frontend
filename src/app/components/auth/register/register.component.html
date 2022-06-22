@@ -1,9 +1,9 @@
 <mat-card>
-  <mat-card-title>Welcome back</mat-card-title>
-  <mat-card-subtitle>Need an account?</mat-card-subtitle>
-  <mat-card-subtitle (click)="router.navigate(['/auth/register'])">Register here</mat-card-subtitle>
+  <mat-card-title>Registration</mat-card-title>
+  <mat-card-subtitle>Already registered?</mat-card-subtitle>
+  <mat-card-subtitle (click)="router.navigate(['/auth/login'])">Login here</mat-card-subtitle>
   <mat-card-content>
-    <form [formGroup]="form" (ngSubmit)="login()">
+    <form [formGroup]="form" (ngSubmit)="register()">
       <div>
         <mat-form-field>
           <mat-label>Email</mat-label>
@@ -12,6 +12,7 @@
           <mat-error *ngIf="username.touched && username.hasError('email')">Email must be valid</mat-error>
         </mat-form-field>
       </div>
+
       <div>
         <mat-form-field>
           <mat-label>Password</mat-label>
@@ -20,7 +21,7 @@
         </mat-form-field>
       </div>
       <div>
-        <button mat-button type="submit" [disabled]="!form.valid">Login</button>
+        <button mat-button color="primary" type="submit" [disabled]="!form.valid">Register</button>
       </div>
 
     </form>

@@ -1,27 +1,27 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {LoginService} from "./login.service";
+import {RegisterService} from "./register.service";
 import {Router} from "@angular/router";
 import {tap} from "rxjs";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent {
+export class RegisterComponent {
 
   form: FormGroup = new FormGroup({
     username: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required])
   })
 
-  constructor(private loginService: LoginService, public router: Router) {
+  constructor(private registerService: RegisterService, public router: Router) {
   }
 
-  login() {
+  register() {
     if (this.form.valid) {
-      this.loginService.login({
+      this.registerService.register({
         username: this.username.value,
         password: this.password.value
       }).pipe(

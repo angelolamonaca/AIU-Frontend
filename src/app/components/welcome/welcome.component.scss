@@ -1,15 +1,40 @@
+@keyframes shadow-change {
+  0% {
+    text-shadow: 5px 10px indigo;
+  }
+  25% {
+    text-shadow: 10px 5px #6309a8;
+  }
+  50% {
+    text-shadow: 15px 10px #8a29d5;
+  }
+  75% {
+    text-shadow: 10px 15px #6309a8;
+  }
+  100% {
+    text-shadow: 5px 10px indigo;
+  }
+}
+
 .main-div {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
   text-align: center;
   max-width: 90vw;
+
   & p {
-    margin: 5px;
+    animation: shadow-change ease-in-out 5s infinite;
+  }
+
+  .link:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform 1s ease;
+  }
+
+  .blockchain_city {
+    max-width: 90vw;
+    max-height: 50vh;
   }
 }
-
-.blockchain_city {
-  max-width: 90vw;
-  max-height: 50vh;
- }
