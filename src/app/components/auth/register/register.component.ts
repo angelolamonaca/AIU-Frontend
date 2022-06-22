@@ -7,11 +7,12 @@ import {tap} from "rxjs";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
 
   form: FormGroup = new FormGroup({
+    name: new FormControl(null, [Validators.required]),
     username: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required])
   })
@@ -22,12 +23,17 @@ export class RegisterComponent {
   register() {
     if (this.form.valid) {
       this.registerService.register({
+        name: this.name.value,
         username: this.username.value,
         password: this.password.value
       }).pipe(
         tap(() => this.router.navigate(['home']).then(() => window.location.reload()))
       ).subscribe()
     }
+  }
+
+  get name(): FormControl {
+    return this.form.get('name') as FormControl;
   }
 
   get username(): FormControl {
