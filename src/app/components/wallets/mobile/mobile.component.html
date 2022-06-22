@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Wallet principale</mat-card-title>
+    <mat-card-subtitle>Bitcoin</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="wallet-keys">
+      <p>Public address</p>
+      <p>32PQCySs2k8iLhvdnmdrZY9qKezMfL2Vk6</p>
+      <button mat-button>COPY PUBLIC ADDRESS</button>
+    </div>
+    <div *ngIf="visiblePrivateKey" class="wallet-keys">
+      <p>Private key</p>
+      <p>L1jRT74vxxjgory3HcJkuKFF6hpPRiXNTJA8A9S1HYyHgq389zp7</p>
+      <button mat-button>COPY PRIVATE KEY</button>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="changePrivateKeyVisibility()"
+            mat-button>{{ visiblePrivateKey ? 'HIDE PRIVATE KEY' : 'SHOW PRIVATE KEY' }}</button>
+  </mat-card-actions>
+</mat-card>

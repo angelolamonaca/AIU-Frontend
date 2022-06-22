@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from '../components/app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HomeComponent} from '../components/home/home.component';
+import {WalletsComponent} from '../components/wallets/wallets.component';
 import {AuthComponent} from '../components/auth/auth.component';
 import {LoginComponent} from '../components/auth/login/login.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -21,6 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {WelcomeComponent} from "../components/welcome/welcome.component";
 import {RegisterComponent} from "../components/auth/register/register.component";
+import {DesktopComponent} from "../components/wallets/desktop/desktop.component";
+import {MobileComponent} from "../components/wallets/mobile/mobile.component";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -29,7 +31,9 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    WalletsComponent,
+    DesktopComponent,
+    MobileComponent,
     AuthComponent,
     LoginComponent,
     RegisterComponent,

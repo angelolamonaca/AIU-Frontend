@@ -1,5 +1,5 @@
 <mat-toolbar class="example-toolbar" color="primary">
-  <button [disabled]="!isLoggedIn" (click)="drawer.toggle()" mat-icon-button class="example-icon">
+  <button *ngIf="!isMobile" [disabled]="!isLoggedIn" (click)="drawer.toggle()" mat-icon-button class="example-icon">
     <mat-icon class="icon-display">menu</mat-icon>
   </button>
   <span></span>

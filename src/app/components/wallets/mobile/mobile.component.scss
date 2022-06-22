@@ -1,0 +1,19 @@
+.example-card {
+  margin-top: 25px;
+  text-align: center;
+  width: 80vw;
+}
+
+.example-header-image {
+  background-image: url('/assets/images/wrapped-bitcoin-logo.png');
+  background-size: cover;
+}
+
+p {
+  margin: 5px;
+  word-wrap: break-word
+}
+
+.wallet-keys {
+  margin-bottom: 25px
+}
