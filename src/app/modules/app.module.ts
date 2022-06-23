@@ -21,8 +21,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {WelcomeComponent} from "../components/welcome/welcome.component";
 import {RegisterComponent} from "../components/auth/register/register.component";
-import {DesktopComponent} from "../components/wallets/desktop/desktop.component";
-import {MobileComponent} from "../components/wallets/mobile/mobile.component";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -32,8 +31,6 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     WalletsComponent,
-    DesktopComponent,
-    MobileComponent,
     AuthComponent,
     LoginComponent,
     RegisterComponent,
@@ -55,7 +52,7 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         allowedDomains: ["localhost:4200"],
       },
-    }), MatToolbarModule, MatIconModule, MatSidenavModule,
+    }), MatToolbarModule, MatIconModule, MatSidenavModule, MatGridListModule,
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

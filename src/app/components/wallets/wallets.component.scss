@@ -1,7 +1,10 @@
 .example-card {
-  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
-  width: 80vw;
+  min-width: 50vw;
 }
 
 .example-header-image {
