@@ -19,6 +19,14 @@ export class LoginComponent {
   constructor(private loginService: LoginService, public router: Router) {
   }
 
+  get username(): FormControl {
+    return this.form.get('username') as FormControl;
+  }
+
+  get password(): FormControl {
+    return this.form.get('password') as FormControl;
+  }
+
   login() {
     if (this.form.valid) {
       this.loginService.login({
@@ -28,14 +36,6 @@ export class LoginComponent {
         tap(() => this.router.navigate(['wallets']).then(() => window.location.reload()))
       ).subscribe()
     }
-  }
-
-  get username(): FormControl {
-    return this.form.get('username') as FormControl;
-  }
-
-  get password(): FormControl {
-    return this.form.get('password') as FormControl;
   }
 
 }

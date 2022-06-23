@@ -1,21 +1,23 @@
 <mat-toolbar class="example-toolbar" color="primary">
-  <button *ngIf="!isMobile" [disabled]="!isLoggedIn" (click)="drawer.toggle()" mat-icon-button class="example-icon">
+  <button (click)="drawer.toggle()" *ngIf="!isMobile" [disabled]="!isLoggedIn" class="example-icon" mat-icon-button>
     <mat-icon class="icon-display">menu</mat-icon>
   </button>
   <span></span>
   <span></span>
   <span class="example-spacer"></span>
-  <button (click)="isLoggedIn? router.navigate(['/home']) : router.navigate(['/welcome'])" mat-icon-button class="example-icon favorite-icon">
+  <button (click)="isLoggedIn? router.navigate(['/home']) : router.navigate(['/welcome'])" class="example-icon favorite-icon"
+          mat-icon-button>
     <mat-icon class="icon-display">home</mat-icon>
   </button>
   <span></span>
   <span></span>
-  <button (click)="isLoggedIn? logout(): router.navigate(['/auth/login'])" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <button (click)="isLoggedIn? logout(): router.navigate(['/auth/login'])" aria-label="Example icon-button with share icon" class="example-icon"
+          mat-icon-button>
     <mat-icon class="icon-display">{{isLoggedIn ? 'power_settings_new' : 'login'}}</mat-icon>
   </button>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container" autosize>
+<mat-drawer-container autosize class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <p>Auto-resizing sidenav</p>
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
@@ -28,7 +30,7 @@
     <router-outlet></router-outlet>
 
     <div *ngIf="isLoggedIn" class="example-button-container">
-      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <button aria-label="Example icon button with a delete icon" color="primary" mat-fab>
         <mat-icon>add</mat-icon>
       </button>
     </div>

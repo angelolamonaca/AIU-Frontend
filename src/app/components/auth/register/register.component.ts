@@ -20,18 +20,6 @@ export class RegisterComponent {
   constructor(private registerService: RegisterService, public router: Router) {
   }
 
-  register() {
-    if (this.form.valid) {
-      this.registerService.register({
-        name: this.name.value,
-        username: this.username.value,
-        password: this.password.value
-      }).pipe(
-        tap(() => this.router.navigate(['wallets']).then(() => window.location.reload()))
-      ).subscribe()
-    }
-  }
-
   get name(): FormControl {
     return this.form.get('name') as FormControl;
   }
@@ -42,6 +30,18 @@ export class RegisterComponent {
 
   get password(): FormControl {
     return this.form.get('password') as FormControl;
+  }
+
+  register() {
+    if (this.form.valid) {
+      this.registerService.register({
+        name: this.name.value,
+        username: this.username.value,
+        password: this.password.value
+      }).pipe(
+        tap(() => this.router.navigate(['wallets']).then(() => window.location.reload()))
+      ).subscribe()
+    }
   }
 
 }
