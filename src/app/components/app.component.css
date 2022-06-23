@@ -2,6 +2,11 @@ span + span {
   margin-left: 20px;
 }
 
+.add-wallet-button:hover {
+  transform: scale(1.5);
+  transition: transform 1s ease;
+}
+
 .example-toolbar {
   height: 10vh;
 }

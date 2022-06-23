@@ -1,6 +1,7 @@
-<mat-card *ngFor="let wallet of userWallets" class="example-card">
+<mat-card *ngFor="let wallet of userWallets" class="example-card mat-elevation-z5">
   <mat-card-header>
-    <div class="example-header-image" mat-card-avatar></div>
+    <div *ngIf="isEthereumWallet(wallet.address)" class="example-header-image-ethereum" mat-card-avatar></div>
+    <div *ngIf="!isEthereumWallet(wallet.address)" class="example-header-image-bitcoin" mat-card-avatar></div>
   </mat-card-header>
   <mat-card-content>
     <mat-card-title>{{wallet.name}}</mat-card-title>
@@ -8,16 +9,19 @@
     <div class="wallet-keys">
       <p>Public address</p>
       <p>{{wallet.address}}</p>
-      <button mat-button>COPY PUBLIC ADDRESS</button>
+      <button (click)="copyToClipboard(wallet.address)" mat-button>COPY PUBLIC ADDRESS</button>
     </div>
     <div *ngIf="isPkVisibleForWallet(wallet.address)" class="wallet-keys">
       <p>Private key</p>
       <p>{{wallet.pk}}</p>
-      <button mat-button>COPY PRIVATE KEY</button>
+      <button (click)="copyToClipboard(wallet.pk)" mat-button>COPY PRIVATE KEY</button>
     </div>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="changePrivateKeyVisibility(wallet.address)"
             mat-button>{{ isPkVisibleForWallet(wallet.address) ? 'HIDE PRIVATE KEY' : 'SHOW PRIVATE KEY' }}</button>
   </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="buffer"></mat-progress-bar>
+  </mat-card-footer>
 </mat-card>

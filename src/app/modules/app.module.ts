@@ -22,6 +22,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {WelcomeComponent} from "../components/welcome/welcome.component";
 import {RegisterComponent} from "../components/auth/register/register.component";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {CreateWalletComponent} from "../components/wallets/create-wallet/create-wallet.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -31,6 +35,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     WalletsComponent,
+    CreateWalletComponent,
     AuthComponent,
     LoginComponent,
     RegisterComponent,
@@ -44,6 +49,7 @@ export function tokenGetter() {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
     HttpClientModule,
     MatSnackBarModule,
     AppRoutingModule, HttpClientModule,
@@ -52,7 +58,7 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         allowedDomains: ["localhost:4200"],
       },
-    }), MatToolbarModule, MatIconModule, MatSidenavModule, MatGridListModule,
+    }), MatToolbarModule, MatIconModule, MatSidenavModule, MatGridListModule, MatSelectModule, MatProgressBarModule,
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

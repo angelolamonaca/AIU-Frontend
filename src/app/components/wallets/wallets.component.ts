@@ -30,8 +30,15 @@ export class WalletsComponent implements OnInit {
       this.userWalletAddressWithVisiblePk = walletAddress
   }
 
+  isEthereumWallet(address: string) {
+    return address.startsWith('0x')
+  }
+
   ngOnDestroy() {
     this.userWalletsSubscription.unsubscribe()
   }
 
+  async copyToClipboard(text: string) {
+    await navigator.clipboard.writeText(text)
+  }
 }

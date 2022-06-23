@@ -1,15 +1,35 @@
+@use '@angular/material' as mat;
+
 .example-card {
+  &:hover {
+    @include mat.elevation(20);
+    transform: translateY(5%) scale(1.05);
+    transition: transform 1s ease;
+    z-index: 100;
+  }
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   min-width: 50vw;
+  max-width: 80vw;
 }
 
-.example-header-image {
+.example-header-image-bitcoin {
   background-image: url('/assets/images/wrapped-bitcoin-logo.png');
   background-size: cover;
+}
+
+.example-header-image-ethereum {
+  background-image: url('/assets/images/wrapped-ethereum-logo.svg');
+  background-size: cover;
+}
+
+.example-header-image-bitcoin:hover,
+.example-header-image-ethereum:hover {
+  transform: scale(1.5);
+  transition: transform 1s ease;
 }
 
 p {
@@ -19,4 +39,10 @@ p {
 
 .wallet-keys {
   margin-bottom: 25px
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 1s ease;
 }
