@@ -1,0 +1,64 @@
+@keyframes color-change {
+  0% {
+    color: ghostwhite;
+  }
+  25% {
+    color: #b86bf3;
+  }
+  50% {
+    color: #8a29d5;
+  }
+  75% {
+    color: #b86bf3;
+  }
+  100% {
+    color: ghostwhite;
+  }
+}
+
+mat-dialog-content {
+  height: 40vh;
+  position: relative;
+}
+
+mat-dialog-actions {
+  position: absolute;
+  bottom: 30px;
+}
+
+h1 {
+  animation: color-change 5s infinite;
+}
+
+mat-label {
+  color: ghostwhite;
+}
+
+.link:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: transform 1s ease;
+}
+
+////input outline color
+//:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+//  color: ghostwhite !important;
+//  // opacity: 1!important;
+//}
+
+//mat-input focused color
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: ghostwhite !important;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: transform 1s ease;
+}
+
+
+button:disabled {
+  cursor: not-allowed;
+  transform: unset;
+}

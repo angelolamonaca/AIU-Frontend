@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Create new Wallet</h1>
+<mat-dialog-content>
+  <form (ngSubmit)="createWallet()" [formGroup]="form">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Wallet Name</mat-label>
+        <input formControlName="name" matInput placeholder="Main Wallet" type="text">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a blockchain</mat-label>
+        <mat-select formControlName="blockchain">
+          <mat-option value="bitcoin" [ngStyle]="{'color': 'ghostwhite'}">Bitcoin</mat-option>
+          <mat-option value="ethereum" [ngStyle]="{'color': 'ghostwhite'}">Ethereum</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-dialog-actions>
+      <button color="warn" mat-button mat-dialog-close="true">Cancel</button>
+      <button [disabled]="!form.valid" type="submit" mat-button mat-dialog-close="true">Create</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
