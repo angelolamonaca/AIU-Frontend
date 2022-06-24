@@ -26,6 +26,8 @@ import {CreateWalletComponent} from "../components/wallets/create-wallet/create-
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSelectModule} from "@angular/material/select";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "@abacritt/angularx-social-login";
+import {environment} from "../../environments/environment";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -58,9 +60,25 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         allowedDomains: ["localhost:4200"],
       },
-    }), MatToolbarModule, MatIconModule, MatSidenavModule, MatGridListModule, MatSelectModule, MatProgressBarModule,
+    }), MatToolbarModule, MatIconModule, MatSidenavModule, MatGridListModule, MatSelectModule, MatProgressBarModule, SocialLoginModule,
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            environment.GOOGLE_CLIENT_ID
+          )
+        }
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
