@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "../../../interfaces/user";
-import {LoginResponse} from "../../../interfaces/login-response";
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +11,14 @@ export class RegisterService {
   constructor(private http: HttpClient) {
   }
 
-  register(user: User): Observable<LoginResponse> {
+  register(user: User): Observable<User> {
     localStorage.clear()
-    const body = new HttpParams()
-      .set('name', user.name!)
-      .set('username', user.username)
-      .set('password', user.password);
-    return this.http.post<LoginResponse>('api/auth/register', body.toString(),
+    const body =
       {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-      });
+        name: user.name,
+        username: user.username,
+        password: user.password
+      }
+    return this.http.post<User>('api/auth/register', body);
   }
 }
