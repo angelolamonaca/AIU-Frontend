@@ -26,4 +26,15 @@ export class LoginService {
       tap((res: LoginResponse) => localStorage.setItem("refresh_token", res.refresh_token)),
     );
   }
+
+  loginOauthGoogle(idToken: string) {
+    localStorage.clear()
+    const body = {
+      idToken
+    }
+    return this.http.post<LoginResponse>('api/auth/login/oauth/google', body).pipe(
+      tap((res: LoginResponse) => localStorage.setItem("access_token", res.access_token)),
+      tap((res: LoginResponse) => localStorage.setItem("refresh_token", res.refresh_token)),
+    );
+  }
 }

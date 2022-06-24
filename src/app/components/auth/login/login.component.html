@@ -3,6 +3,7 @@
   <mat-card-subtitle>Need an account?</mat-card-subtitle>
   <mat-card-subtitle (click)="router.navigate(['/auth/register'])" class="link">Register here</mat-card-subtitle>
   <mat-card-content>
+    <div class="google-button"><asl-google-signin-button></asl-google-signin-button></div>
     <form (ngSubmit)="login()" [formGroup]="form">
       <div>
         <mat-form-field appearance="outline">
